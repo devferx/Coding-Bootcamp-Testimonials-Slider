@@ -10,7 +10,7 @@ body {
   font-size: 2em;
   background-image: url(../../images/pattern-curve.svg);
   background-repeat: no-repeat;
-  background-position:bottom left;
+  background-position: bottom left;
 }
 
 .main {
@@ -21,63 +21,98 @@ body {
   align-items: center;
 }
 
-.description{
+.description {
   width: 45%;
-  margin-right: -2.8em;
+  margin-right: -5.5em;
   position: relative;
   z-index: 10;
   will-change: opacity, transform;
 }
 
-.quote-logo-img{
+.quote-logo-img {
   position: absolute;
   top: -1em;
   left: 3.1em;
 }
 
-.text-animate-active{
-  animation: text-trans 1s;
+.name-desc {
+  font-size: 0.6em;
+  color: var(--grayishBlue);
 }
 
-.name-desc{
-  font-size: .6em;
-  color:var(--grayishBlue);
-}
-
-.bold{
+.bold {
   color: var(--darkBlue);
   font-weight: 500;
 }
 
-.image-container{
-  position: relative;
-  width: 50%;
+.image-container {
+  width: 40%;
+  background-image: url(../../images/pattern-bg.svg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1;
+  padding: 2em;
 }
 
-.bg-img{
-  position: absolute;
-  z-index: -1;
-  width: 100%;
-}
-
-.photo-cotainer{
+.photo-cotainer {
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
 }
 
-.photo{
+.photo {
   width: 80%;
   border-radius: 5px;
   box-shadow: 0px 20px 15px rgba(0, 0, 0, 0.2);
   will-change: opacity, transform;
 }
 
+.buttons {
+  display: flex;
+  height: 40px;
+  position: absolute;
+  bottom: -20px;
+  left: 2.5em;
+}
+
+.btn {
+  display: block;
+  margin: 0;
+  border: 0;
+  width: 40px;
+  outline: none;
+  cursor: pointer;
+  background-color: white;
+}
+
+.btn-img {
+  transition: ease 450ms;
+  will-change: transform;
+}
+
+.btn:hover .btn-img {
+  transform: scale(1.2);
+}
+
+.btn:first-child {
+  border-top-left-radius: 50%;
+  border-bottom-left-radius: 50%;
+}
+
+.btn:last-child {
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+}
+
+/* animaciones */
+
+.text-animate-active {
+  animation: text-trans 1s;
+}
 
 .photo-animate {
   animation: photo-trans 1s;
@@ -87,53 +122,18 @@ body {
   animation: fade 1s;
 }
 
-.hidden{
+/* estado */
+
+.hidden {
   visibility: hidden;
 }
 
-.buttons{
-  display: flex;
-  height: 40px;
-  position: absolute;
-  bottom: -20px;
-  left: 2.5em;
-}
-
-.btn{
-  display: block;
-  margin:0;
-  border: 0;
-  width: 40px;
-  outline: none;
-  cursor: pointer;
-  background-color: white;
-}
-
-.btn-img{
-  transition: ease 450ms;
-  will-change: transform;
-}
-
-.btn:hover .btn-img{
-  transform: scale(1.2);
-}
-
-.btn:first-child{
-  border-top-left-radius: 50%;
-  border-bottom-left-radius: 50%;
-}
-
-.btn:last-child{
-  border-top-right-radius: 50%;
-  border-bottom-right-radius: 50%;
-}
-
 @keyframes photo-trans {
-  0%{
+  0% {
     transform: translateY(0);
     opacity: 1;
   }
-  
+
   100% {
     transform: translateY(-100%);
     opacity: 0;
@@ -142,21 +142,21 @@ body {
 }
 
 @keyframes fade {
-  0%{
+  0% {
     opacity: 0;
   }
-  
+
   100% {
     opacity: 1;
   }
 }
 
-@keyframes text-trans{
-  0%{
+@keyframes text-trans {
+  0% {
     transform: translateX(0);
     opacity: 1;
   }
-  
+
   100% {
     transform: translateX(-100%);
     opacity: 0;
@@ -164,24 +164,27 @@ body {
 }
 
 @media screen and (max-width: 425px) {
-  body{
+  body {
     font-size: 1.5em;
     background-size: contain;
   }
 
-  .main{
+  .main {
     height: auto;
+    width: 100%;
     flex-direction: column-reverse;
-    justify-content: flex-start;
+    align-items: center;
+    justify-content: space-around;
   }
 
-  .description{
+  .description {
     width: 80%;
     margin: 0;
+    margin-bottom: 2em;
     text-align: center;
   }
 
-  .quote-logo-img{
+  .quote-logo-img {
     top: 0;
   }
 
@@ -189,11 +192,25 @@ body {
     display: block;
   }
 
-  .image-container{ 
+  .image-container {
     width: 100%;
+    height: 35vh;
+    padding: 10px;
+    padding-right: 0;
+    margin: 2em 0;
   }
 
-  .photo{
+  .photo {
     width: 50%;
+  }
+
+  .buttons{
+    left: 35%;
+  }
+}
+
+@media screen and (max-width: 1024px) and (min-width:425px) {
+  body {
+    font-size: 1.5em;
   }
 }
